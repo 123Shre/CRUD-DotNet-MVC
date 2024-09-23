@@ -1,0 +1,40 @@
+﻿@model List<Category> 
+
+<div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary">Category List</h2>
+        <a asp-controller="Category" asp-action="Create" class="btn btn-success">Add New Category</a>
+    </div>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                    <tr>
+                        <td>@obj.Id</td>
+                        <td>@obj.Name</td>
+                        <td>@obj.Description</td>
+                        <td class="text-center">
+                            <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-sm btn-outline-primary me-2">
+                                <i class="bi bi-pencil"></i> Edit
+                            </a>
+                            <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-sm btn-outline-danger">
+                                <i class="bi bi-trash"></i> Delete
+                            </a>
+                            <a asp-controller="Category" asp-action="ViewPdf" asp-route-id="@obj.Id" class="btn btn-sm btn-outline-info">
+                                 <i class="bi bi-file-earmark-pdf"></i> View PDF
+                             </a>
+                        </td>
+                    </tr>
+            }
+        </tbody>
+    </table>
+</div>

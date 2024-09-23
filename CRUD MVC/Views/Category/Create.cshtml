@@ -1,0 +1,26 @@
+﻿@model Category
+<form method="post" enctype="multipart/form-data">
+    <input asp-for="Id" hidden />
+    <div class="row pb-2">
+        <h2 class="text-primary">Add Category</h2>
+        <hr />
+    </div>
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" required class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" required class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="file">File Upload</label>
+        <input type="file" name="file" required class="form-control" accept=".pdf" />
+        <span asp-validation-for="FileUpload" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary" style="width:150px">Add</button>
+    <a asp-controller="Category" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to List</a>
+</form>
